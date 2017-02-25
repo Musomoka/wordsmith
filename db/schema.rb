@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130121753) do
+ActiveRecord::Schema.define(version: 20170222083225) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "dialects", force: :cascade do |t|
+    t.string   "dialect_name"
+    t.text     "description"
+    t.integer  "language_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["language_id"], name: "index_dialects_on_language_id"
+  end
 
   create_table "dictionaries", force: :cascade do |t|
     t.string   "word"
@@ -27,7 +43,6 @@ ActiveRecord::Schema.define(version: 20170130121753) do
     t.string   "name"
     t.string   "description"
     t.string   "country"
-    t.string   "dialect"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

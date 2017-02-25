@@ -1,0 +1,20 @@
+ <div class="container">
+<%=provide(:title,"Add")%>
+
+<%=form_for (@dictionary) do |f| %>
+
+<%=f.grouped_collection_select :language_id, Language.all,:country,:name ,:id, :name, include_blank: true%>
+
+  Word: <%= f.text_field :word %>
+  Definition : <%= f.text_field :defination%>
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+</div>

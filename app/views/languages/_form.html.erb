@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+    <form>
+        <%=form_for (@language) do |f|%>
+        
+            <div id = "country_select">
+                <div class="form-group">
+                    <%=f.label "Select Country"%>
+                    <%=f.country_select :country, include_blank: false,class:"form-control"%>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div id="language">
+                    <%=f.label "Enter Language"%>
+                    <%=f.text_field :name,class:"form-control",id:"language"%>
+                </div>
+        
+           
+                <div class="form-group">
+                    <%=f.label "Enter Language Description."%>
+                    <br>
+                 <%=f.text_area :description, :rows => "15",class:"form-control",id:"description"%>
+                  
+                </div>
+                
+               <%= f.submit "Submit New Language", class: "btn btn-primary" %>
+           </div>
+        
+        
+        
+        <%end%>
+       
+    </form>
+
+</div>

@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   
-  root 'dictionary#index'
+  resources :categories
+  root 'dictionaries#index'
   
-  get 'dictionary/index'
+  get 'dictionaries/index'
+
+  resources :dictionaries
+  resources :languages
+
 
  
 
-  get 'dictionary/new'
-  resources :dictionary
+  resources :dialects
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,13 @@
+
+<%=provide(:title,"dialects List")%>
+<%if @dialects.nil? %>
+	<h3>No Dialects</h3>
+	<%= link_to 'New_dialect', @dialects_new_path,class:"btn btn-default"%> 
+	<%end%>
+<%@dialects.each do |dialect| %>
+<%=dialect.dialect_name%>
+<%=truncate dialect.description %>
+<br>
+<%= link_to 'read more', dialect_url(dialect.id),class:"btn btn-default"%> 
+
+<%end%>

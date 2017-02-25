@@ -1,9 +1,0 @@
-<h1>Dictionary</h1>
-
-<ul>
-    <% @dictionaries.each do |dictionary| %>
-    
-    <li><%= link_to dictionary.word, dictionary_url(dictionary.id) %></li>
-    <%end%>
-    
-</ul>

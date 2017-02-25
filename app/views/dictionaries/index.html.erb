@@ -1,0 +1,30 @@
+<section id="Dicionary">
+    <div class="container">
+
+    <%=provide(:title,"Home")%>
+
+    <%if @dictionaries.nil?%>
+      <h3>No Words</h3>
+
+      <%= link_to 'Add Words', @dictionary_new_path,class:"btn btn-default"%> 
+    <%end%>
+
+
+    <div class="list-group">
+     
+        <% @dictionaries.each do |d| %>
+            <a href =<%= dictionary_url(d)%> class="list-group-item list-group-item-action flex-column align-items-start active"%>
+        <div class="d-flex w-100 justify-content-between">
+          <h2 class="mb-1"><%=d.word%></h2>
+          <small><%=d.created_at%></small>
+        </div>
+        <p class="mb-1"><%=d.defination%></p>
+       
+      </a>
+      
+        <%end%>
+    </div>
+</section>
+
+
+  

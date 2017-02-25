@@ -2,12 +2,12 @@
 
 one:
   word: MyString
-  word_class: MyString
-  language: MyString
+  word_class_id: 1
+  language_id: 1
   defination: MyText
 
 two:
   word: MyString
-  word_class: MyString
-  language: MyString
+  word_class_id: 2
+  language_id: 2
   defination: MyText

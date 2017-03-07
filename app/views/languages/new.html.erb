@@ -1,5 +1,7 @@
  <div class="container">
-<%=provide(:title,"New Language")%>
-    <%=render "form"%>
-
+	<%=provide(:title,"New Language")%>
+   <%= render 'form',language: @language%>
+    
+    
+    
 </div>

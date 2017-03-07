@@ -1,4 +1,18 @@
+<div class="container">
 <%=provide(:title,@language.name)%>
 
+
+
+<small><%=  ISO3166::Country.find_country_by_alpha2(@language.country)%> </small>
 <h1><%=@language.name%></h1>
-<p><%=@language.description%></p>
+<p><%=@language.description%> </p>
+	
+
+<div class="btn-group" role="group" aria-label="Basic example">
+
+
+
+ <%=render 'dialects/dialects'%>
+</div>
+
+</div>

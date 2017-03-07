@@ -1,13 +1,29 @@
+<section id="option-buttons">
+
+	<div class="button-group">
+		<%= link_to 'Add', new_language_path, class: "btn btn-Primary"%>
+	</div>
+</section>
 
 <%=provide(:title,"Languages List")%>
 <%if @languages.nil? %>
 	<h3>No languages</h3>
 	<%= link_to 'New Language', @languages_new_path,class:"btn btn-default"%> 
 	<%end%>
-<%@languages.each do |language| %>
-<%=language.name%>
-<%=truncate language.description %>
-<br>
-<%= link_to 'read more', language_path(language.id),class:"btn btn-default"%> 
 
-<%end%>
+<div class="container">
+	<div class="row">
+		<%@languages.each do |language| %>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading"> <%=language.name%> </div>		
+				<div class="panel-body">	
+					<%= language.description.truncate(75) %></p>
+				
+					<%= link_to 'read more...', language_path(language.id),class:"btn-sm btn-default"%> 
+				</div>
+			</div>
+		</div>
+		<%end%>
+	</div>
+</div>

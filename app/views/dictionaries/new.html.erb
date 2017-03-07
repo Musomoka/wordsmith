@@ -1,7 +1,7 @@
  <div class="container">
 <%=provide(:title,"Add")%>
 
-<%=form_for (@dictionary) do |f| %>
+<%=form_for(@dictionary) do |f| %>
 
 <%=f.grouped_collection_select :language_id, Language.all,:country,:name ,:id, :name, include_blank: true%>
 

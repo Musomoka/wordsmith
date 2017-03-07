@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  
-  resources :categories
   root 'dictionaries#index'
-  
-  get 'dictionaries/index'
-
+  resources :categories
   resources :dictionaries
   resources :languages
-
-
- 
-
   resources :dialects
 
 

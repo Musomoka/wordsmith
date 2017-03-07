@@ -16,9 +16,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create category" do
-    assert_difference('Category.count') do
-      post categories_url, params: { category: { description: @category.description, name: @category.name } }
-    end
+        assert_difference('Category.count') do
+          post categories_url, params: { category: { description: @category.description, name: @category.name } }
+        end
 
     assert_redirected_to category_url(Category.last)
   end
@@ -46,9 +46,5 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to categories_url
   end
 
-  test "should get index" do
-          get root_url
-          assert_response :success
-          assert_select "title", "Categories | #{@base_title}"
-        end
+  
 end

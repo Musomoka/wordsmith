@@ -3,11 +3,13 @@
 
     <%=provide(:title,"Home")%>
 
-    <%if @dictionaries.nil?%>
+
+    <%if @dictionaries.empty?%>
       <h3>No Words</h3>
 
-      <%= link_to 'Add Words', @dictionary_new_path,class:"btn btn-default"%> 
-    <%end%>
+      <%=link_to 'Add Words', new_dictionary_path,class:"btn btn-default"%> 
+      
+      <%else%>
 
 
     <div class="list-group">
@@ -24,7 +26,5 @@
       
         <%end%>
     </div>
+    <%end%>
 </section>
-
-
-  

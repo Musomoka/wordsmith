@@ -13,8 +13,8 @@
 	<div class="row">
 
 	<%@dialects.each do |dialect| %>
-		
-			<%= dialect.dialect_name%>
+			
+			<%=dialect.dialect_name%>
 			<%= dialect.description.truncate(15) %>
 		</div>
 	<%end%>

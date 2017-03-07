@@ -9,3 +9,15 @@ body {
     padding-top: 0px;
   }
 } 
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: orange;
+    color: white;
+    font-size: 1.5em;
+
+}
+
+.option-buttons {
+	background-color: orange
+}

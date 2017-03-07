@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyString
-  country: MyString
-  dialect: MyString
+  name: FIRSTlanguage
+  description: A First language spoke somewhere
+  country: FIRST Country
+ 
 
 two:
-  name: MyString
-  description: MyString
-  country: MyString
-  dialect: MyString
+  name: SECOND language
+  description: A second language spoke somewhere
+  country: SECOND Country
+ 

@@ -1,14 +1,12 @@
 class DialectsController < ApplicationController
 	before_action :set_dialect, only: [:show, :edit, :update, :destroy]
-   def dialects
-    language_id = @language.id
-    @dialects = Dialect.find(params[anguage_id])
+  before_action :set_language
+   def dialect_partial
+     
+    @dialects = Dialects.all
   end
 
   def show
-
-
-    
   end
 
   def index
@@ -16,33 +14,36 @@ class DialectsController < ApplicationController
   end
 
   def new
-  	@dialect = @dialect.create
+  	@dialect = @language.dialects.build
   end
   
     
-    def create
+  def create
     	
-    	@dialect = @dialect.new(dialect_params)
-      @dialect.id = 
-         respond_to do |format|
-    		if @dialect.save
-        format.html { redirect_to @dialect, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @dialect }
-      else
-		
-			render :show, notice: 'Dialect was unsuccessfully created.' 
-		  end
-    end
+    @dialect = @language.dialects.build(dialect_params)
+   
+   
+  	if @dialect.save
+       redirect_to @language, notice: 'Category was successfully created.' 
+     
+     else
+	
+		  render :new, notice: 'Dialect was unsuccessfully created.' 
+	   end
+   
   end
 	
 
   private
 
-
+  
 
     def set_dialect
         @dialect=Dialect.find(params[:id])
     end
+  def set_language
+  @language = Language.find(params[:language_id])
+  end
 
     def dialect_params
     	params.require(:dialect).permit(:dialect_name,:description, :language_id,:language=>[:name,:country_id])

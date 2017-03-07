@@ -1,6 +1,6 @@
 class LanguagesController < ApplicationController
  before_action :set_language, only: [:show, :edit, :update, :destroy]
- 
+ before_action :set_dialect
  
  def index
  @languages = Language.all
@@ -30,7 +30,7 @@ class LanguagesController < ApplicationController
   end
   
   def show
-    @dialect = Dialect.new
+  
     language_id = @language
     
 
@@ -64,7 +64,9 @@ class LanguagesController < ApplicationController
 
 private
 
-  
+  def set_dialect
+    @dialects=@language.dialects.where(language_id: @language.id)
+  end
 
   def set_language
     @language = Language.find(params[:id])

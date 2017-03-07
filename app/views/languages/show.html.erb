@@ -9,10 +9,11 @@
 	
 
 <div class="btn-group" role="group" aria-label="Basic example">
-
-
-
- <%=render 'dialects/dialects'%>
+	<%= link_to 'Add Dialect', new_language_dialect_url(@language),class:"btn-sm btn-secondary"%>
+<section>
+   
+<%=render 'dialects/dialects_partial'%>
+ </section>
 </div>
 
 </div>

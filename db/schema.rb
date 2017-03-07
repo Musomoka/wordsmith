@@ -12,34 +12,34 @@
 
 ActiveRecord::Schema.define(version: 20170222083225) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "dialects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "dialects", force: :cascade do |t|
     t.string   "dialect_name"
-    t.text     "description",  limit: 65535
+    t.text     "description"
     t.integer  "language_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["language_id"], name: "index_dialects_on_language_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["language_id"], name: "index_dialects_on_language_id"
   end
 
-  create_table "dictionaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "dictionaries", force: :cascade do |t|
     t.string   "word"
-    t.text     "defination",    limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "defination"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "word_class_id"
     t.integer  "language_id"
-    t.index ["language_id"], name: "index_dictionaries_on_language_id", using: :btree
-    t.index ["word_class_id"], name: "index_dictionaries_on_word_class_id", using: :btree
+    t.index ["language_id"], name: "index_dictionaries_on_language_id"
+    t.index ["word_class_id"], name: "index_dictionaries_on_word_class_id"
   end
 
-  create_table "languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "languages", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.string   "country"
@@ -47,14 +47,11 @@ ActiveRecord::Schema.define(version: 20170222083225) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "word_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "word_classes", force: :cascade do |t|
     t.string   "category"
-    t.text     "defination", limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "defination"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "dialects", "languages"
-  add_foreign_key "dictionaries", "languages"
-  add_foreign_key "dictionaries", "word_classes"
 end

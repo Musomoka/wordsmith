@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'sqlite3'
+
 #has scope gem for creating a filter 
 
 gem 'has_scope'
